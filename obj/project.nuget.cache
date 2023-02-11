@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HhX/wVc61nLxgJgQSvGd7Q5j3i1SXTrEHHn97DtbM5yFxPirPs1uGP0XR0xZLtiuxME/7/FCN2D4JdwrEYFD9w==",
+  "dgSpecHash": "j/85jsW8053Pr0ehdG1BqtX5gRkNFJUAqu81keTiVahvtTyjOw3MzTBziUl0VTkKCNfpR6NDqA+ALc0m9Ca/zg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj",
+  "projectFilePath": "C:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vitor\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Vitor\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

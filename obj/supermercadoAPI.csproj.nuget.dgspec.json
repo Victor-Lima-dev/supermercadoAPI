@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj": {}
+    "C:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj": {
+    "C:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj",
         "projectName": "supermercadoAPI",
-        "projectPath": "c:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj",
+        "projectPath": "C:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\supermercadoAPI.csproj",
         "packagesPath": "C:\\Users\\Vitor\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\obj\\",
+        "outputPath": "C:\\Users\\Vitor\\Desktop\\code\\supermercadoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,6 +21,7 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +41,8 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.2, )"
             },
