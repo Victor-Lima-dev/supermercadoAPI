@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using supermercadoAPI.context;
+using supermercadoAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //registrar o banco de dados
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//registrar o caixa, registra apenas uma vez
+builder.Services.AddSingleton<Caixa>();
 
 var app = builder.Build();
 
