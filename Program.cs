@@ -19,6 +19,7 @@ builder.Services.AddSingleton<Deposito>();
 //registrar o itemdeposito, registra apenas uma vez
 builder.Services.AddSingleton<ItemDeposito>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -23,7 +23,7 @@ namespace supermercadoAPI.Controllers
 
         //ver caixa
         [HttpGet]
-        public ActionResult<List<Produto>> Get()
+        public ActionResult<List<ItemCaixa>> Get()
         {
             return _caixa.Produtos;
         }
@@ -37,20 +37,46 @@ namespace supermercadoAPI.Controllers
             {
                 return NotFound();
             }
-            _caixa.AdicionarProduto(produto, quantidade);
-            return Ok(_caixa.Produtos);
+
+            //encontrar qual item tem esse produto
+            var verificarItemCaixa = _caixa.Produtos.Find(item => item.Produto.ProdutoId == id);
+            if (verificarItemCaixa != null)
+            {
+                verificarItemCaixa.Quantidade += quantidade;
+                return Ok(verificarItemCaixa);
+            }
+
+
+            else
+            {
+                var itemCaixa = new ItemCaixa
+                {
+                    Produto = produto,
+                    Quantidade = quantidade
+                };
+                _caixa.AdicionarProduto(itemCaixa);
+                return Ok(itemCaixa);
+            }
         }
 
         //remover produto
         [HttpPost("remover/{id}")]
-        public async Task<ActionResult> RemoverProduto(int id)
+        public async Task<ActionResult> RemoverProduto(int id, int quantidade)
         {
             var produto = await _context.Produtos.FindAsync(id);
             if (produto == null)
             {
                 return NotFound();
             }
-            _caixa.RemoverProduto(produto);
+
+            //encontrar qual item tem essse produto
+            var itemCaixa = _caixa.Produtos.Find(item => item.Produto.ProdutoId == id);
+            itemCaixa.Quantidade -= quantidade;
+
+            if (itemCaixa.Quantidade == 0)
+            {
+                _caixa.RemoverProduto(itemCaixa);
+            }
             return Ok();
         }
 
@@ -61,7 +87,7 @@ namespace supermercadoAPI.Controllers
             _caixa.CalcularTotal();
             return _caixa.Total;
         }
-        
+
 
     }
 }

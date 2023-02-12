@@ -7,32 +7,32 @@ namespace supermercadoAPI.Models
 {
     public class Caixa
     {
-        public List<Produto> Produtos { get; set; }
+        public List<ItemCaixa> Produtos { get; set; }
         public double Total { get; set; }
 
         public Caixa()
         {
-            Produtos = new List<Produto>();
+            Produtos = new List<ItemCaixa>();
         }
 
-        public void AdicionarProduto(Produto produto, int quantidade)
+        public void AdicionarProduto(ItemCaixa item)
         {
-
-            for (int i = 0; i < quantidade; i++)
-            {
-                Produtos.Add(produto);
-            }
-            Produtos.Add(produto);
+            Produtos.Add(item);
+            
         }
 
-        public void RemoverProduto(Produto produto)
+        public void RemoverProduto(ItemCaixa produto)
         {
             Produtos.Remove(produto);
         }
 
         public void CalcularTotal()
         {
-            Total = Produtos.Sum(produto => produto.Preco);
+            Total = Produtos.Sum(produto => produto.Produto.Preco * produto.Quantidade);
         }
+
+        //atualizar 
+        
+    
     }
 }
