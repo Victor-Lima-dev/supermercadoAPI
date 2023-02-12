@@ -88,6 +88,19 @@ namespace supermercadoAPI.Controllers
             return _caixa.Total;
         }
 
+       //realizar venda
+       //assincrono
+        [HttpPost("venda")]
+        public async Task<ActionResult> RealizarVenda()
+        {
+            _context.Produtos.ToList();
+             _caixa.RealizarVenda(_context.ItemDeposito.ToList(), _caixa.Produtos.ToList());
+            await _context.SaveChangesAsync();
 
+            return Ok(_context.ItemDeposito.ToList());
+        }
+       
+
+       
     }
 }
