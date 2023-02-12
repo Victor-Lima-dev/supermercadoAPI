@@ -14,6 +14,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 //registrar o caixa, registra apenas uma vez
 builder.Services.AddSingleton<Caixa>();
+//registrar o deposito, registra apenas uma vez
+builder.Services.AddSingleton<Deposito>();
+//registrar o itemdeposito, registra apenas uma vez
+builder.Services.AddSingleton<ItemDeposito>();
 
 var app = builder.Build();
 

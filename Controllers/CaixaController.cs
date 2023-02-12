@@ -30,14 +30,14 @@ namespace supermercadoAPI.Controllers
 
         //adicionar produto
         [HttpPost("adicionar/{id}")]
-        public async Task<ActionResult> AdicionarProduto(int id)
+        public async Task<ActionResult> AdicionarProduto(int id, int quantidade)
         {
             var produto = await _context.Produtos.FindAsync(id);
             if (produto == null)
             {
                 return NotFound();
             }
-            _caixa.AdicionarProduto(produto);
+            _caixa.AdicionarProduto(produto, quantidade);
             return Ok(_caixa.Produtos);
         }
 

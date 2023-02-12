@@ -15,8 +15,13 @@ namespace supermercadoAPI.Models
             Produtos = new List<Produto>();
         }
 
-        public void AdicionarProduto(Produto produto)
+        public void AdicionarProduto(Produto produto, int quantidade)
         {
+
+            for (int i = 0; i < quantidade; i++)
+            {
+                Produtos.Add(produto);
+            }
             Produtos.Add(produto);
         }
 

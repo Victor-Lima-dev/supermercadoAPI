@@ -14,6 +14,8 @@ namespace supermercadoAPI.context
         }
 
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Deposito> Deposito { get; set; }
+        public DbSet<ItemDeposito> ItemDeposito { get; set; }
     }
     
 }
