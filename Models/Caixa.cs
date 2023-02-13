@@ -37,8 +37,22 @@ namespace supermercadoAPI.Models
             foreach (var itemCaixa in itensCaixa)
             {
                 var itemDeposito = itensDeposito.Find(item => item.Produto.ProdutoId == itemCaixa.Produto.ProdutoId);
-                itemDeposito.Quantidade -= itemCaixa.Quantidade;
+
+                //verificar se tem estoque
+                if (itemDeposito.Quantidade < itemCaixa.Quantidade)
+                {
+                    throw new Exception("Não há estoque suficiente para realizar a venda");
+                }
+                else if (itemDeposito.Quantidade == itemCaixa.Quantidade)
+                {
+                   itemDeposito.Quantidade = 0;
+                }
+                else
+                {
+                    itemDeposito.Quantidade -= itemCaixa.Quantidade;
+                }
             }
+            
         }        
 }
 }

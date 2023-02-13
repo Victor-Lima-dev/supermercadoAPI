@@ -95,6 +95,7 @@ namespace supermercadoAPI.Controllers
         {
             _context.Produtos.ToList();
              _caixa.RealizarVenda(_context.ItemDeposito.ToList(), _caixa.Produtos.ToList());
+             _caixa.Produtos.Clear();
             await _context.SaveChangesAsync();
 
             return Ok(_context.ItemDeposito.ToList());
